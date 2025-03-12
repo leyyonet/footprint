@@ -1,6 +1,6 @@
 {
   "name": "@leyyo/footprint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Object footprint",
   "keywords": [
     "foot print",
@@ -27,13 +27,11 @@
   "scripts": {
     "clear": "rimraf dist",
     "lint": "eslint src/**/*.ts",
-    "build": "npm run clear && tsc && cp -rv src/assets dist/assets/",
-    "test": "jest --config=jest.json --experimental-vm-modules",
+    "asset": "node -r ts-node/register commands/assets.ts",
+    "build": "npm run clear && tsc && npm run asset",
+    "test": "jest --config=jest.json",
     "test:watch": "jest --watch --config=jest.json",
     "test:coverage": "jest --config=jest.json --coverage --coverageDirectory=coverage",
-    "start": "npm run lint && npm run build && npm run run:js",
-    "run:js": "node dist/server.js",
-    "run:ts": "node -r ts-node/register src/server.ts",
     "~publish": "npm run build && npm publish -access=public"
   },
   "files": [
