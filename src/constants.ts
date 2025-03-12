@@ -1,0 +1,1 @@
+export const FootprintSign: unique symbol = Symbol.for('#lyy.footprint.s');
